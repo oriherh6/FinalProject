@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0064)http://dw.convertfiles.com/files/0553562001526204035/readme.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+    <title></title>
+    <meta name="GENERATOR" content="OpenOffice 4.1.1  (FreeBSD/amd64)">
+    <meta name="CREATED" content="20180513;2341800">
+    <meta name="CHANGED" content="0;0">
+    <style type="text/css">
+        <!--
+        @page { margin: 0.79in }
+        P { margin-bottom: 0.08in }
+        PRE.cjk { font-family: "Courier", monospace }
+        -->
+    </style>
+</head>
+<body lang="en-US" dir="LTR">
+<pre class="western">1. name: omry berkovitch
+   id: 312536154
+
+2. run the site by open cmd and run "node app",and then you can enter the url http://localhost:3000/static/ideas.html
+   my main page is a todo list where you can add new tasks you want to complete.
+   add a new task by fill the textbox and click on the "Add" button
+   after adding a new task, your options are to delete the task with the 'X' button at the end of every task line,
+   it also enable to mark task as done with a strikethrough by just clicking on a task line.
+    ** new part **
+    now there is also login and register pages
+    http://localhost:3000/static/login.html
+    http://localhost:3000/static/register.html
+
+    and now you are not authorize to login if you didnt register.
+    you are not authorize to get into ideas.html if you are not logged in.
+    the todo list is separate for each user.
+    the data is persist and stay even after restarting the server.
+
+3. it was very challenging to implement the authorization with cookies, i had hard time to find the right headers in order to send the cookies from the client to the server.
+    also i didnt know how to extract the cookie in the server but a short google search solve this problem.
+
+    4. I found the styling of the login and register pages very fun.
+</pre>
+
+</body></html>
