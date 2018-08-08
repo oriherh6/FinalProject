@@ -10,8 +10,6 @@ let kfs = keyFileStorage('./db', false);
 app.use(cookieParser());
 
 
-let todoRouter = require("./routes/todo");
-let usersRouter = require("./routes/users");
 
 app.use(express.json());
 
@@ -34,8 +32,19 @@ function authorize(req, res, next) {
     }
 }
 
+let todoRouter = require("./routes/todo");
+let usersRouter = require("./routes/users");
+let riderRouter=require("./routes/riders");
+let instructorRouter=require("./routes/instructors");
+let horsesRouter=require("./routes/horses");
+
+
 app.use("/static", express.static('www'));
 app.use("/idea", todoRouter);
 app.use("/users", usersRouter);
+app.use("/riders", riderRouter);
+app.use("/instructors", instructorRouter);
+app.use("/horses", horsesRouter);
+
 
 app.listen(3000);

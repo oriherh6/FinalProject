@@ -7,8 +7,6 @@ let app = express();
 // // Require no latest accessed key-values to be cached:
 // let kfs = keyFileStorage('./db', false);
 
-let riderRouter = require("./routes/rider");
-let userRouter = require("./routes/users");
 
 app.use(express.json());
 
@@ -16,8 +14,14 @@ app.get('/', function (req, res) {
     res.send("Hello IM DB!");
 });
 
+let riderRouter = require("./routes/rider");
+let userRouter = require("./routes/users");
+let instructorsRouter = require("./routes/instructors");
+let horsesRouter = require("./routes/horses");
 
-app.use("/rider", riderRouter);
+app.use("/riders", riderRouter);
 app.use("/user", userRouter);
+app.use("/horses", horsesRouter);
+app.use("/instructors", instructorsRouter);
 
 app.listen(3001);
