@@ -140,11 +140,17 @@ function newRider(e) {
         body: rider
     }).then((response) => response.json())
         .then((res) => {
-            if (res.error===undefined){
-                location.href=res.url;
+            if (res.status == '500'){
+                alert("Error during adding Rider");
             }
             else{
-                location.href=res.url;
+                alert("Rider added successfully");
+                let elements = document.getElementsByTagName("input");
+                for (let ii=0; ii < elements.length; ii++) {
+                    if (elements[ii].type == "text") {
+                        elements[ii].value = "";
+                    }
+                }
             }
         });
 }
@@ -171,11 +177,17 @@ function newInstructor(e) {
         body: instructor
     }).then((response) => response.json())
         .then((res) => {
-            if (res.error===undefined){
-                location.href=res.url;
+            if (res.status == '500'){
+                alert("Error during adding Instructor");
             }
             else{
-                location.href=res.url;
+                alert("Instructor added successfully");
+                let elements = document.getElementsByTagName("input");
+                for (let ii=0; ii < elements.length; ii++) {
+                    if (elements[ii].type == "text") {
+                        elements[ii].value = "";
+                    }
+                }
             }
         });
 }
@@ -203,11 +215,17 @@ function newHorse(e) {
         body: horse
     }).then((response) => response.json())
         .then((res) => {
-            if (res.error===undefined){
-                location.href=res.url;
+            if (res.status == '500'){
+                alert("Error during adding Horse");
             }
             else{
-                location.href=res.url;
+                alert("Horse added successfully");
+                let elements = document.getElementsByTagName("input");
+                for (let ii=0; ii < elements.length; ii++) {
+                    if (elements[ii].type == "text") {
+                        elements[ii].value = "";
+                    }
+                }
             }
         });
 }
