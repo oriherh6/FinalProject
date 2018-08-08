@@ -6,11 +6,11 @@ let keyFileStorage = require("key-file-storage");
 // Require no latest accessed key-values to be cached:
 let kfs = keyFileStorage('./db', false);
 
-router.get("/", function (req, res, next) {
-    let user = req.cookies.user;
+router.get("/:user", function (req, res, next) {
+    let user = req.params.user;
+    console.log(user);
     kfs(user).then(function (userFromLocal) {
-        res.cookie('user', user, {expire: new Date() + (30 * 60 * 1000)});
-        res.send(userFromLocal.todos);
+        res.send(userFromLocal);
     });
 });
 
@@ -76,7 +76,6 @@ function guid() {
             .toString(16)
             .substring(1);
     }
-
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
 
