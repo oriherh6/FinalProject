@@ -29,14 +29,9 @@ function authorize(req, res, next) {
         res.redirect("http://localhost:3000/static/login.html");
         return;
     }
-    user in kfs(function(error, exists) {
-        if(exists) {
-            next();
-        }else{
-            res.redirect("http://localhost:3000/static/login.html");
-
-        }
-    });
+    else{
+        next();
+    }
 }
 
 app.use("/static", express.static('www'));
