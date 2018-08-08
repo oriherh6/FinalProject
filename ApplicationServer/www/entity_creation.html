@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="myStylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+    <<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>StableManagment</title>
+</head>
+<body>
+<div class="btn-group btn-group-justified">
+    <a href="#" class="btn btn-success" onclick="switch_entity(0)">Rider</a>
+    <a href="#" class="btn btn-success" onclick="switch_entity(1)">Instructor</a>
+    <a href="#" class="btn btn-success" onclick="switch_entity(2)">Horse</a>
+</div>
+<p></p>
+
+<div class="container" id="rider">
+    <div class="panel panel-success">
+        <div class="panel-heading">New Rider</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">First Name</label>
+                        <input type="text" class="form-control" name="fname" id="fname_rider">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Last Name</label>
+                        <input type="text" class="form-control" name="lname" id="lname_rider">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Age</label>
+                        <input type="text" class="form-control" name="age" id="age_rider">
+                    </div>
+                </div>
+                <div class='col-md-6'>
+                    <div class="form-group">
+                        <label class="control-label">Class Time</label>
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" id="class_date_rider" />
+                            <span class="input-group-addon">
+                     <span class="glyphicon glyphicon-calendar"></span>
+                     </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-outline-success" value="Add Rider" id="addRider">
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container" id="instructor" style="display: none">
+    <div class="panel panel-success">
+        <div class="panel-heading">New Instructor</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">First Name</label>
+                        <input type="text" class="form-control" name="fname" id="fname_instructor">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Last Name</label>
+                        <input type="text" class="form-control" name="lname" id="lname_instructor">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Email</label>
+                        <input type="text" class="form-control" name="email" id="email_instructor">
+                    </div>
+                </div>
+                <div class='col-md-6'>
+                    <div class="form-group">
+                        <label class="control-label">Working days</label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="days" value="Sunday">
+                            <label class="form-check-label" for="inlineCheckbox1">Sunday</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="days" value="Monday">
+                            <label class="form-check-label" for="inlineCheckbox1">Monday</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="days" value="Tuesday">
+                            <label class="form-check-label" for="inlineCheckbox1">Tuesday</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="days" value="Wednesday">
+                            <label class="form-check-label" for="inlineCheckbox1">Wednesday</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="days" value="Thursday">
+                            <label class="form-check-label" for="inlineCheckbox1">Thursday</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox6" name="days" value="Friday">
+                            <label class="form-check-label" for="inlineCheckbox1">Friday</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox7" name="days" value="Saturday">
+                            <label class="form-check-label" for="inlineCheckbox1">Saturday</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-outline-success" value="Add Instructor" id="addInstructor">
+        </div>
+    </div>
+</div>
+
+
+<div class="container" id="horse" style="display: none">
+    <div class="panel panel-success">
+        <div class="panel-heading">New Horse</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <input type="text" class="form-control" name="fname" id="name_horse">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Breed</label>
+                        <input type="text" class="form-control" name="lname" id="breed_horse">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Age</label>
+                        <input type="text" class="form-control" name="age" id="age_horse">
+                    </div>
+                </div>
+                <div class='col-md-6'>
+
+                    <div class="form-group">
+                        <div id="drop-area">
+                            <form class="my-form">
+                                <p>Drag horse picture</p>
+                                <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+                                <label class="button" for="fileElem">Select Picture</label>
+                            </form>
+                            <progress id="progress-bar" max=100 value=0></progress>
+                            <div id="gallery" /></div>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-outline-success" value="Add Horse" id="addHorse">
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+            daysOfWeekDisabled: [6]
+        });
+    });
+</script>
+<script src="entity_creation.js"></script>
+</html>
