@@ -57,7 +57,7 @@ function createNewInstructorElement(id, firstName, lastName, email, date) {
     li.appendChild(t);
     li.setAttribute("id", id);
     li.setAttribute("date", date);
-    li.setAttribute("onclick",selectInstructor(this.getAttribute('id'),this.getAttribute('date')));
+    li.setAttribute("onclick","selectInstructor(this.getAttribute('id'),this.getAttribute('date'))");
     document.getElementById("myULInstructors").appendChild(li);
 }
 
@@ -83,7 +83,7 @@ function selectInstructor(idInstructor, date)
 
 function createNewHorseElement(id, name, breed, picture, date) {
     let li = document.createElement("li");
-    li.innerHTML = `<h5>${name}</h5> <img src="https://zippy.gfycat.com/UnconsciousAngelicAmericangoldfinch.gif">;
+    li.innerHTML = `<h5>${name}</h5> <img src="https://zippy.gfycat.com/UnconsciousAngelicAmericangoldfinch.gif">`;
     li.setAttribute("id", id);
     li.setAttribute("date", date);
     // li.setAttribute("onclick",selectInstructor(this.getAttribute('id'),this.getAttribute('date')));
