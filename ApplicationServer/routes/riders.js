@@ -2,13 +2,13 @@ let express = require("express");
 let router = express.Router();
 var request = require('request');
 //get all riders TODO
-router.get("/", function (req, res, next) {
-    let user = req.cookies.user;
-    kfs(user).then(function (userFromLocal) {
-        res.cookie('user', user, {expire: new Date() + (30 * 60 * 1000)});
-        res.send(userFromLocal.todos);
-    });
-});
+// router.get("/", function (req, res, next) {
+//     let user = req.cookies.user;
+//     kfs(user).then(function (userFromLocal) {
+//         res.cookie('user', user, {expire: new Date() + (30 * 60 * 1000)});
+//         res.send(userFromLocal.todos);
+//     });
+// });
 
 
 router.post("/", function (req,res,next) {
@@ -29,7 +29,12 @@ router.post("/", function (req,res,next) {
     });
 });
 
-
+router.get("/", function (req, res, next) {
+    request.get({
+        url: 'http://localhost:3001/riders/'},function (err, httpResponse, body) {
+            res.send(body);
+    });
+});
 
 function guid() {
     function s4() {
