@@ -6,7 +6,7 @@ let keyFileStorage = require("key-file-storage");
 // Require no latest accessed key-values to be cached:
 let kfs = keyFileStorage('./riders', false);
 
-const testFolder = './riders/';
+const folder = './riders/';
 const fs = require('fs');
 
 
@@ -39,7 +39,7 @@ router.get("/", function (req, res, next) {
  let promises=[];
 
  //get all keys (file names)
-    fs.readdir(testFolder, (err, files) => {
+    fs.readdir(folder, (err, files) => {
         files.forEach(file => {
             fileNames.push(file);
         });

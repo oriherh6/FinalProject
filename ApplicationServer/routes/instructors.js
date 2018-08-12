@@ -2,12 +2,16 @@ let express = require("express");
 let router = express.Router();
 var request = require('request');
 
-//get all instructors TODO
-router.get("/", function (req, res, next) {
+//get all instructors that work on specific day
+router.get("/:day", function (req, res, next) {
     let user = req.cookies.user;
-    kfs(user).then(function (userFromLocal) {
-        res.cookie('user', user, {expire: new Date() + (30 * 60 * 1000)});
-        res.send(userFromLocal.todos);
+    let dayInTheWeek=req.params.day;
+
+    res.cookie('user', user, {expire: new Date() + (30 * 60 * 1000)});
+
+    request.get({
+        url: 'http://localhost:3001/instructors/'+dayInTheWeek},function (err, httpResponse, body) {
+        res.send(body);
     });
 });
 

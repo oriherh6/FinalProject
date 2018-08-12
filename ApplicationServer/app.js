@@ -20,6 +20,7 @@ app.get('/', function (req, res) {
 
 app.use("/static/ideas.html", authorize);
 app.use("/idea", authorize);
+//todo add all other end points lie the line above..
 
 function authorize(req, res, next) {
     let user = req.cookies.user;
