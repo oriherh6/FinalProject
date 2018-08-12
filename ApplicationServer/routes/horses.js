@@ -30,9 +30,10 @@ router.post("/", function (req,res,next) {
     let breed = req.body.breed;
     let age = req.body.age;
     let picture = req.body.picture;
+    let takenDays=req.body.takenDays;
     request.post({
         url: 'http://localhost:3001/horses/',
-        json: {name: name,breed:breed, age: age, picture: picture}
+        json: {name: name,breed:breed, age: age, picture: picture,takenDays:takenDays}
     }, function (err, httpResponse, body) {
         if (httpResponse.statusCode != 200) {
             res.status(500).send();

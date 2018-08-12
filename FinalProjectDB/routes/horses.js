@@ -19,9 +19,10 @@ router.post("/", function (req, res, next) {
     let breed = req.body.breed;
     let age = req.body.age;
     let picture = req.body.picture;
+    let takenDays=req.body.takenDays;
 
     let guid = guid1();
-    kfs(guid, {name: name,breed: breed, age: age, picture: picture,guid: guid}, function () {
+    kfs(guid, {name: name,breed: breed, age: age, picture: picture,guid: guid, takenDays:takenDays}, function () {
         res.status(200).send();
     });
 });
