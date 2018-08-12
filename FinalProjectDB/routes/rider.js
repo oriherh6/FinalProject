@@ -6,6 +6,9 @@ let keyFileStorage = require("key-file-storage");
 // Require no latest accessed key-values to be cached:
 let kfs = keyFileStorage('./riders', false);
 
+const testFolder = './riders/';
+const fs = require('fs');
+
 
 function guid1() {
     function s4() {
@@ -28,6 +31,31 @@ router.post("/", function (req, res, next) {
         res.status(200).send();
     });
 });
+
+//get all riders
+router.get("/", function (req, res, next) {
+
+ let fileNames=[];
+ let promises=[];
+
+ //get all keys (file names)
+    fs.readdir(testFolder, (err, files) => {
+        files.forEach(file => {
+            fileNames.push(file);
+        });
+
+        //pile up all promises
+        fileNames.forEach(function (fileName) {
+            promises.push(kfs(fileName));
+        });
+
+        //wait for all promises to resolve
+        Promise.all(promises).then(function(riders){
+            res.send(riders);
+        });
+    });
+});
+
 
 
 

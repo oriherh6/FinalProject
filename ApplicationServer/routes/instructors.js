@@ -25,7 +25,7 @@ router.post("/", function (req,res,next) {
             res.status(500).send();
         }
         else {
-            res.status(200).send();
+            res.status(200).send({ok:200});
         }
     });
 });
