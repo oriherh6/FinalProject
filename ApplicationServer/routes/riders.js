@@ -1,15 +1,6 @@
 let express = require("express");
 let router = express.Router();
 var request = require('request');
-//get all riders TODO
-// router.get("/", function (req, res, next) {
-//     let user = req.cookies.user;
-//     kfs(user).then(function (userFromLocal) {
-//         res.cookie('user', user, {expire: new Date() + (30 * 60 * 1000)});
-//         res.send(userFromLocal.todos);
-//     });
-// });
-
 
 router.post("/", function (req,res,next) {
     let firstName = req.body.firstName;
@@ -24,7 +15,7 @@ router.post("/", function (req,res,next) {
             res.status(500).send();
         }
         else {
-            res.status(200).send({ok:200});
+            res.status(200).send({status:200});
         }
     });
 });
