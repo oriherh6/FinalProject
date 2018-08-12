@@ -44,19 +44,48 @@ function selectRider(idRider, date)
     }).then((response) => response.json())
         .then((instructors) => {
             instructors.forEach(function (instructor) {
-                createNewRiderElement(instructor.guid, instructor.firstName, instructor.lastName,instructor.email, instructor.classTime)
+                createNewInstructorElement(instructor.guid, instructor.firstName, instructor.lastName,instructor.email, date)
             });
         });
 
 }
 
-function createNewInstructorElement(id, firstName, lastName, email, day) {
+function createNewInstructorElement(id, firstName, lastName, email, date) {
     let li = document.createElement("li");
-    let inputValue = firstName + " " + lastName + "   Email:" + email + "   Day:" + day;
+    let inputValue = firstName + " " + lastName + "   Email:" + email;
     let t = document.createTextNode(inputValue);
     li.appendChild(t);
     li.setAttribute("id", id);
-    // li.setAttribute("date", date);
-    // li.setAttribute("onclick",selectRider(this.getAttribute('id'),this.getAttribute('date')));
+    li.setAttribute("date", date);
+    li.setAttribute("onclick",selectInstructor(this.getAttribute('id'),this.getAttribute('date')));
     document.getElementById("myULInstructors").appendChild(li);
+}
+
+
+function selectInstructor(idInstructor, date)
+{
+    let dateFormat = new Date(date);
+    fetch("http://localhost:3000/horses/" + dateFormat, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }).then((response) => response.json())
+        .then((horses) => {
+            horses.forEach(function (horse) {
+                createNewHorseElement(horse.guid, horse.name, horse.breed,horse.picture, date)
+            });
+        });
+
+}
+
+function createNewHorseElement(id, name, breed, picture, date) {
+    let li = document.createElement("li");
+    li.innerHTML = `<h5>${name}</h5> `;
+    li.setAttribute("id", id);
+    li.setAttribute("date", date);
+    // li.setAttribute("onclick",selectInstructor(this.getAttribute('id'),this.getAttribute('date')));
+    document.getElementById("myULHorses").appendChild(li);
 }

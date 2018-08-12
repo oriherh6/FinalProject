@@ -200,7 +200,7 @@ function newHorse(e) {
     let age = document.getElementById("age_horse").value;
     let picture = "";
 
-    let horse = JSON.stringify({name:name, breed:breed, age:age, picture:picture});
+    let horse = JSON.stringify({name:name, breed:breed, age:age, picture:picture, takenDays:[]});
     if (name === '' || breed === '' || age ==='') {
         alert("Please fill all the fields");
         return;
