@@ -92,6 +92,29 @@ function createNewHorseElement(id, name, breed, picture, date, riderId, instruct
     li.setAttribute("riderId", riderId);
     li.setAttribute("instructorId", instructorId);
     li.setAttribute("date", date);
-    // li.setAttribute("onclick",selectInstructor(this.getAttribute('id'),this.getAttribute('date')));
+    li.setAttribute("onclick","createMatch(this.getAttribute('date'),this.getAttribute('riderId'),this.getAttribute('instructorId'),this.getAttribute('horseId'))");
     document.getElementById("myULHorses").appendChild(li);
+}
+
+function createMatch(lessonTime, riderId, instructorId, horseId) {
+    let lesson = JSON.stringify({lessonTime:lessonTime, riderId:riderId, instructorId:instructorId, horseId:horseId});
+    fetch("http://localhost:3000/matches", {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Accept': 'application/json',
+            'Content-type':'application/json'
+        },
+        body: lesson
+    }).then((response) => response.json())
+        .then((res) => {
+            if (res.status == '200'){
+                alert("New lesson added successfully");
+                location.reload();
+
+            }
+            else{
+                alert("Error during adding new lesson");
+            }
+        });
 }
