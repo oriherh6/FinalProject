@@ -38,6 +38,7 @@ let usersRouter = require("./routes/users");
 let riderRouter=require("./routes/riders");
 let instructorRouter=require("./routes/instructors");
 let horsesRouter=require("./routes/horses");
+let matchesRouter=require("./routes/matches");
 
 
 app.use("/static", express.static('www'));
@@ -46,6 +47,7 @@ app.use("/users", usersRouter);
 app.use("/riders", riderRouter);
 app.use("/instructors", instructorRouter);
 app.use("/horses", horsesRouter);
+app.use("/matches", matchesRouter);
 
 
 app.listen(3000);

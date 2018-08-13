@@ -27,7 +27,7 @@ router.post("/", function (req, res, next) {
     let classTime = req.body.classTime;
 
     let guid = guid1();
-    kfs(guid, {firstName: firstName,lastName: lastName, age: age, classTime: classTime,guid: guid}, function () {
+    kfs(guid, {firstName: firstName,lastName: lastName, age: age, classTime: classTime,guid: guid, hasMatch:false}, function () {
         res.status(200).send();
     });
 });
@@ -48,9 +48,10 @@ router.get("/", function (req, res, next) {
         fileNames.forEach(function (fileName) {
             promises.push(kfs(fileName));
         });
-
+// TODO filter only riders with no match!!
         //wait for all promises to resolve
         Promise.all(promises).then(function(riders){
+          riders=  riders.filter(rider => !rider.hasMatch);
             res.send(riders);
         });
     });

@@ -18,10 +18,12 @@ let riderRouter = require("./routes/rider");
 let userRouter = require("./routes/users");
 let instructorsRouter = require("./routes/instructors");
 let horsesRouter = require("./routes/horses");
+let matchesRouter = require("./routes/matches");
 
 app.use("/riders", riderRouter);
 app.use("/user", userRouter);
 app.use("/horses", horsesRouter);
 app.use("/instructors", instructorsRouter);
+app.use("/matches", matchesRouter);
 
 app.listen(3001);
