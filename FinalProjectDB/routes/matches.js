@@ -45,7 +45,7 @@ router.post("/", function (req, res, next) {
 
 function richMatchesByGuids(matches, f) {
     let promises = [];
-    let richMatches = [];
+
     matches.forEach(function (match) {
         promises.push(kfsRider(match.riderId));
         promises.push(kfsHorse(match.horseId));
@@ -53,25 +53,27 @@ function richMatchesByGuids(matches, f) {
     });
 
     Promise.all(promises).then(function (allObjects) {
-        let obj = {};
+        let richMatches = [];
         matches.forEach(function (match) {
+            let richObj = new Object();
+
             //find rider
-            obj.rider = allObjects.find(function (obj) {
-                return obj.guid == match.riderId;
+            richObj.rider = allObjects.find(function (obj) {
+                return obj.guid === match.riderId;
             });
 
             //find horse
-            obj.horse = allObjects.find(function (obj) {
-                return obj.guid == match.horseId;
+            richObj.horse = allObjects.find(function (obj) {
+                return obj.guid === match.horseId;
             });
 
             //find instructor
-            obj.instructor = allObjects.find(function (obj) {
-                return obj.guid == match.instructorId;
+            richObj.instructor = allObjects.find(function (obj) {
+                return obj.guid === match.instructorId;
             });
-            obj.lessonTime = match.lessonTime;
-            obj.guid - match.guid;
-            richMatches.push(obj);
+            richObj.lessonTime = match.lessonTime;
+            richObj.guid = match.guid;
+            richMatches.push(richObj);
         });
         f(richMatches);
     });
