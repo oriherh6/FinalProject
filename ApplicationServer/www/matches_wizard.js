@@ -24,9 +24,10 @@ function createNewRiderElement(id, firstName, lastName, age, classTime) {
     let inputValue = firstName + " " + lastName + "   Age:" + age + "   Class Time:" + classTime;
     let t = document.createTextNode(inputValue);
     li.appendChild(t);
+    li.setAttribute("id", id);
     li.setAttribute("riderId", id);
     li.setAttribute("dateForInstructor", classTime);
-    li.setAttribute("onclick", "selectRider(this.getAttribute('riderId'), this.getAttribute('dateForInstructor'))");
+    li.setAttribute("onclick", "selectRider(this.getAttribute('riderId'), this.getAttribute('dateForInstructor')); markElement(\"myULRiders\",id);");
     document.getElementById("myULRiders").appendChild(li);
 }
 
@@ -57,10 +58,11 @@ function createNewInstructorElement(id, firstName, lastName, email, date, riderI
     let inputValue = firstName + " " + lastName + "   Email:" + email;
     let t = document.createTextNode(inputValue);
     li.appendChild(t);
+    li.setAttribute("id", id);
     li.setAttribute("instructorID", id);
     li.setAttribute("riderId", riderId);
     li.setAttribute("date", date);
-    li.setAttribute("onclick","selectInstructor(this.getAttribute('instructorID'),this.getAttribute('date'),this.getAttribute('riderId'))");
+    li.setAttribute("onclick","selectInstructor(this.getAttribute('instructorID'),this.getAttribute('date'),this.getAttribute('riderId')); markElement(\"myULInstructors\",id);");
     document.getElementById("myULInstructors").appendChild(li);
 }
 
@@ -88,11 +90,12 @@ function selectInstructor(instructorId, date, riderId)
 function createNewHorseElement(id, name, breed, picture, date, riderId, instructorId) {
     let li = document.createElement("li");
     li.innerHTML = `<h5>${name}</h5> <img src="https://zippy.gfycat.com/UnconsciousAngelicAmericangoldfinch.gif">`;
+    li.setAttribute("id", id);
     li.setAttribute("horseId", id);
     li.setAttribute("riderId", riderId);
     li.setAttribute("instructorId", instructorId);
     li.setAttribute("date", date);
-    li.setAttribute("onclick","createMatch(this.getAttribute('date'),this.getAttribute('riderId'),this.getAttribute('instructorId'),this.getAttribute('horseId'))");
+    li.setAttribute("onclick","createMatch(this.getAttribute('date'),this.getAttribute('riderId'),this.getAttribute('instructorId'),this.getAttribute('horseId')); markElement(\"myULHorses\",id)");
     document.getElementById("myULHorses").appendChild(li);
 }
 
@@ -117,4 +120,15 @@ function createMatch(lessonTime, riderId, instructorId, horseId) {
                 alert("Error during adding new lesson");
             }
         });
+}
+
+
+function markElement(ulName,id) {
+    let ul = document.getElementById(ulName);
+    let lis = ul.getElementsByTagName("li");
+    for(let i=0; i< lis.length;i++)
+    {
+        lis[i].className="";
+    }
+    document.getElementById(id).className += "active";
 }
