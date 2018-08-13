@@ -16,14 +16,14 @@ router.get("/:day", function (req, res, next) {
     });
 });
 
-//get all horses TODO
-router.get("/", function (req, res, next) {
-    let user = req.cookies.user;
-    kfs(user).then(function (userFromLocal) {
-        res.cookie('user', user, {expire: new Date() + (30 * 60 * 1000)});
-        res.send(userFromLocal.todos);
-    });
-});
+// //get all horses
+// router.get("/", function (req, res, next) {
+//     let user = req.cookies.user;
+//     res.cookie('user', user, {expire: new Date() + (30 * 60 * 1000)});
+//     kfs(user).then(function (userFromLocal) {
+//         res.send(userFromLocal.todos);
+//     });
+// });
 
 router.post("/", function (req,res,next) {
     let name = req.body.name;

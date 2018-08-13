@@ -3,6 +3,15 @@ let router = express.Router();
 var request = require('request');
 
 
+//get all matches
+router.get("/", function (req, res, next) {
+    request.get({
+        url: 'http://localhost:3001/matches/'
+    }, function (err, httpResponse, body) {
+        res.send(body);
+    });
+});
+
 //add new matches
 router.post("/", function (req,res,next) {
     let horseId = req.body.horseId;

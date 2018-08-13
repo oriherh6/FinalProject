@@ -48,7 +48,6 @@ router.get("/", function (req, res, next) {
         fileNames.forEach(function (fileName) {
             promises.push(kfs(fileName));
         });
-// TODO filter only riders with no match!!
         //wait for all promises to resolve
         Promise.all(promises).then(function(riders){
           riders=  riders.filter(rider => !rider.hasMatch);

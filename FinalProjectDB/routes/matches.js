@@ -6,8 +6,11 @@ let keyFileStorage = require("key-file-storage");
 // Require no latest accessed key-values to be cached:
 let kfsMatches = keyFileStorage('./matches', false);
 let kfsRider = keyFileStorage('./riders', false);
-// const folder = './matches/';
-// const fs = require('fs');
+let kfsHorse = keyFileStorage('./horses', false);
+let kfsInstructor = keyFileStorage('./instructors', false);
+
+const folder = './matches/';
+const fs = require('fs');
 
 router.post("/", function (req, res, next) {
     let horseId = req.body.horseId;
@@ -15,17 +18,88 @@ router.post("/", function (req, res, next) {
     let instructorId = req.body.instructorId;
     let lessonTime = req.body.lessonTime;
 
-    kfsRider(riderId).then(function (rider) {
-       rider.hasMatch=true;
-       kfsRider(riderId,rider).then(function(){
-           let guid = guid1();
-           kfsMatches(guid, {horseId: horseId,riderId: riderId, instructorId: instructorId, lessonTime: lessonTime,guid: guid}, function () {
-               res.status(200).send();
-           });
-       })
+    //update horse taken day because of the new match
+    kfsHorse(horseId).then(function (horse) {
+        horse.takenDays.push(lessonTime);
+        kfsHorse(horseId, horse);
     });
 
+    // update rider to hasMatch=true
+    kfsRider(riderId).then(function (rider) {
+        rider.hasMatch = true;
+        kfsRider(riderId, rider)
+    });
 
+    //add new match file
+    let guid = guid1();
+    kfsMatches(guid, {
+        horseId: horseId,
+        riderId: riderId,
+        instructorId: instructorId,
+        lessonTime: lessonTime,
+        guid: guid
+    }, function () {
+        res.status(200).send();
+    });
+});
+
+function richMatchesByGuids(matches, f) {
+    let promises = [];
+    let richMatches = [];
+    matches.forEach(function (match) {
+        promises.push(kfsRider(match.riderId));
+        promises.push(kfsHorse(match.horseId));
+        promises.push(kfsInstructor(match.instructorId));
+    });
+
+    Promise.all(promises).then(function (allObjects) {
+        let obj = {};
+        matches.forEach(function (match) {
+            //find rider
+            obj.rider = allObjects.find(function (obj) {
+                return obj.guid == match.riderId;
+            });
+
+            //find horse
+            obj.horse = allObjects.find(function (obj) {
+                return obj.guid == match.horseId;
+            });
+
+            //find instructor
+            obj.instructor = allObjects.find(function (obj) {
+                return obj.guid == match.instructorId;
+            });
+            obj.lessonTime = match.lessonTime;
+            obj.guid - match.guid;
+            richMatches.push(obj);
+        });
+        f(richMatches);
+    });
+}
+
+//get all matches
+router.get("/", function (req, res, next) {
+
+    let fileNames = [];
+    let promises = [];
+
+    //get all keys (file names)
+    fs.readdir(folder, (err, files) => {
+        files.forEach(file => {
+            fileNames.push(file);
+        });
+
+        //pile up all promises
+        fileNames.forEach(function (fileName) {
+            promises.push(kfsMatches(fileName));
+        });
+        //wait for all promises to resolve
+        Promise.all(promises).then(function (matches) {
+            richMatchesByGuids(matches, function (richMatches) {
+                res.send(richMatches);
+            });
+        });
+    });
 });
 
 
@@ -35,6 +109,7 @@ function guid1() {
             .toString(16)
             .substring(1);
     }
+
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
 
