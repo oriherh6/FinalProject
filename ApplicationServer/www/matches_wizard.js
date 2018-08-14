@@ -89,7 +89,12 @@ function selectInstructor(instructorId, date, riderId)
 
 function createNewHorseElement(id, name, breed, picture, date, riderId, instructorId) {
     let li = document.createElement("li");
-    li.innerHTML = `<h5>${name}</h5> <img src="https://zippy.gfycat.com/UnconsciousAngelicAmericangoldfinch.gif">`;
+    if(picture == "")
+    {
+        //default picture for horse
+        picture = "https://www.caribuhorsewear.com.au/images/P/Purple-Rope-Halter%20%283%29.jpg"
+    }
+    li.innerHTML = `<h4 style="display: inline">${name}</h4> &nbsp &nbsp <img src="${picture}" style="width: 12%;height: 12%">`;
     li.setAttribute("id", id);
     li.setAttribute("horseId", id);
     li.setAttribute("riderId", riderId);
