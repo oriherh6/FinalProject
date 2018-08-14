@@ -32,7 +32,7 @@ router.post("/login", function (req, res, next) {
     }, function (err, httpResponse, body) {
         if (httpResponse.statusCode===200) {
             res.cookie('user', user, {expire: new Date() + (30 * 60 * 1000)});
-            res.status(301).send({url: "http://localhost:3000/static/ideas.html"});
+            res.status(301).send({url: "http://localhost:3000/static/welcome.html"});
         }
         else {
             res.status(404).send({

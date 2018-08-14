@@ -8,7 +8,7 @@ router.get("/:day", function (req, res, next) {
     let user = req.cookies.user;
     let dayInTheWeek=req.params.day;
 
-    res.cookie('user', user, {expire: new Date() + (30 * 60 * 1000)});
+    // res.cookie('user', user, {expire: new Date() + (30 * 60 * 1000)});
 
     request.get({
         url: 'http://localhost:3001/horses/'+dayInTheWeek},function (err, httpResponse, body) {
