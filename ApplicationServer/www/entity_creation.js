@@ -198,7 +198,7 @@ function newHorse(e) {
     let name = document.getElementById("name_horse").value;
     let breed = document.getElementById("breed_horse").value;
     let age = document.getElementById("age_horse").value;
-    let picture = "";
+    let picture = document.getElementById("picture_horse").value;
 
     let horse = JSON.stringify({name:name, breed:breed, age:age, picture:picture, takenDays:[]});
     if (name === '' || breed === '' || age ==='') {

@@ -13,11 +13,14 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a href="#" style="width: auto"><img src="logo.png" style="width: 180px;"></a>&nbsp&nbsp
+    <a href="http://localhost:3000/static/welcome.html" style="width: auto"><img src="logo.png" style="width: 180px;"></a>&nbsp&nbsp
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/static/welcome.html">Home &nbsp&nbsp</a>
+            </li>
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost:3000/static/entity_creation.html">Add Rider/Instructor/Horse &nbsp&nbsp<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="http://localhost:3000/static/entity_creation.html">Add entity &nbsp&nbsp<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="http://localhost:3000/static/matches_wizard.html">Lessons wizard &nbsp&nbsp</a>
@@ -172,19 +175,10 @@
                         <input type="text" class="form-control" name="age" id="age_horse">
                     </div>
                 </div>
-                <div class='col-md-6'>
-
+                <div class="col-md-6">
                     <div class="form-group">
-                        <div id="drop-area">
-                            <form class="my-form">
-                                <p>Drag horse picture</p>
-                                <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
-                                <label class="button" for="fileElem">Select Picture</label>
-                            </form>
-                            <progress id="progress-bar" max=100 value=0></progress>
-                            <div id="gallery" /></div>
-                    </div>
-
+                        <label class="control-label">Picture (Optional)</label>
+                        <input type="text" class="form-control" name="picture_horse" id="picture_horse">
                     </div>
                 </div>
             </div>

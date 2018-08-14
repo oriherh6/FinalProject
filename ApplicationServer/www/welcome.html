@@ -2,20 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Matches</title>
     <link rel="stylesheet" type="text/css" href="myStylesheet.css">
     <link rel="stylesheet" type="text/css" href="matches.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Welcome Page</title>
 </head>
 <body>
+
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a href="http://localhost:3000/static/welcome.html" style="width: auto"><img src="logo.png" style="width: 180px;"></a>&nbsp&nbsp
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost:3000/static/welcome.html">Home &nbsp&nbsp</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="http://localhost:3000/static/welcome.html">Home &nbsp&nbsp<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="http://localhost:3000/static/entity_creation.html">Add entity &nbsp&nbsp</a>
@@ -23,26 +24,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="http://localhost:3000/static/matches_wizard.html">Lessons wizard &nbsp&nbsp</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="http://localhost:3000/static/matches.html">Lessons &nbsp&nbsp<span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/static/matches.html">Lessons &nbsp&nbsp</a>
             </li>
         </ul>
     </div>
 </nav>
 
-
-<table class="table table-hover" id="matchesTable" style="margin: auto; width: 90%">
-    <thead class="bg-success">
-    <tr>
-        <th scope="col" onclick="sortTable(0)">Date</th>
-        <th scope="col" onclick="sortTable(1)">Rider Name</th>
-        <th scope="col" onclick="sortTable(2)">Instructor Name</th>
-        <th scope="col" onclick="sortTable(3)">Horse Name</th>
-    </tr>
-    </thead>
-    <tbody id="tableBody">
-    </tbody>
-</table>
 </body>
-<script src="matches.js"></script>
 </html>
