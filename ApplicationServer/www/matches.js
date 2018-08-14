@@ -11,6 +11,10 @@ function loadMatches() {
         }
     }).then((response) => response.json())
         .then((matches) => {
+        if(matches.status == '401')
+        {
+            window.location = "http://localhost:3000/static/login.html";
+        }
             matches.forEach(function (match) {
                 let rider= match.rider;
                 let instructor = match.instructor;

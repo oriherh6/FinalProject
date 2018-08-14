@@ -11,6 +11,10 @@ function loadRiders() {
         }
     }).then((response) => response.json())
         .then((riders) => {
+            if(riders.status == '401')
+            {
+                window.location = "http://localhost:3000/static/login.html";
+            }
             riders.forEach(function (rider) {
                 createNewRiderElement(rider.guid, rider.firstName, rider.lastName,rider.age, rider.classTime)
             });
@@ -46,6 +50,10 @@ function selectRider(riderId, date)
         }
     }).then((response) => response.json())
         .then((instructors) => {
+            if(instructors.status == '401')
+            {
+                window.location = "http://localhost:3000/static/login.html";
+            }
             instructors.forEach(function (instructor) {
                 createNewInstructorElement(instructor.guid, instructor.firstName, instructor.lastName,instructor.email, date, riderId)
             });
@@ -80,6 +88,10 @@ function selectInstructor(instructorId, date, riderId)
         }
     }).then((response) => response.json())
         .then((horses) => {
+            if(horses.status == '401')
+            {
+                window.location = "http://localhost:3000/static/login.html";
+            }
             horses.forEach(function (horse) {
                 createNewHorseElement(horse.guid, horse.name, horse.breed,horse.picture, date, riderId, instructorId)
             });
@@ -120,6 +132,10 @@ function createMatch(lessonTime, riderId, instructorId, horseId) {
                 alert("New lesson added successfully");
                 location.reload();
 
+            }
+            else if(res.status == '401')
+            {
+                window.location = "http://localhost:3000/static/login.html"
             }
             else{
                 alert("Error during adding new lesson");
