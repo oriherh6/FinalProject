@@ -18,6 +18,7 @@ function register() {
     }).then((response) => response.json())
         .then((res) => {
             if (res.error===undefined){
+                alert("New user created successfully");
                 location.href=res.url;
             }
             else{
