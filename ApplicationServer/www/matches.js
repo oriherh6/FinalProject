@@ -2,7 +2,7 @@ loadMatches();
 window.onload = function () { sortTable(0) };
 
 function loadMatches() {
-    fetch("http://localhost:3000/matches", {
+    fetch("http://127.0.0.1:3000/matches", {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -13,7 +13,7 @@ function loadMatches() {
         .then((matches) => {
         if(matches.status == '401')
         {
-            window.location = "http://localhost:3000/static/login.html";
+            window.location = "http://127.0.0.1:3000/static/login.html";
         }
             matches.forEach(function (match) {
                 let rider= match.rider;

@@ -5,7 +5,7 @@ loadTodos();
 
 
 function loadTodos() {
-    fetch("http://localhost:3000/idea", {
+    fetch("http://127.0.0.1:3000/idea", {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -41,7 +41,7 @@ list.addEventListener('click', function (ev) {
         id = ev.target.getAttribute("id");
         todo = getTodoById(id);
         todo.done = !todo.done;
-        fetch("http://localhost:3000/idea/" + id, {
+        fetch("http://127.0.0.1:3000/idea/" + id, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -66,7 +66,7 @@ function newElement() {
         alert("You must write something!");
         return;
     }
-    fetch("http://localhost:3000/idea", {
+    fetch("http://127.0.0.1:3000/idea", {
         method: 'PUT',
         credentials: 'include',
         headers: {
@@ -91,7 +91,7 @@ function handleDeleteing() {
         close[i].onclick = function () {
             let div = this.parentElement;
             let id = div.getAttribute('id');
-            fetch("http://localhost:3000/idea/" + id, {
+            fetch("http://127.0.0.1:3000/idea/" + id, {
                 method: 'DELETE',
                 credentials: 'include',
                 headers: {

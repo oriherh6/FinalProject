@@ -8,7 +8,7 @@ function register() {
         alert("You must write something!");
         return;
     }
-    fetch("http://localhost:3000/users/register", {
+    fetch("http://127.0.0.1:3000/users/register", {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

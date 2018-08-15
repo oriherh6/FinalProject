@@ -10,7 +10,7 @@ router.get("/:day", function (req, res, next) {
     // res.cookie('user', user, {expire: new Date() + (30 * 60 * 1000)});
 
     request.get({
-        url: 'http://localhost:3001/instructors/'+dayInTheWeek},function (err, httpResponse, body) {
+        url: 'http://127.0.0.1:3001/instructors/'+dayInTheWeek},function (err, httpResponse, body) {
         res.send(body);
     });
 });
@@ -22,7 +22,7 @@ router.post("/", function (req,res,next) {
     let email = req.body.email;
     let days = req.body.days;
     request.post({
-        url: 'http://localhost:3001/instructors/',
+        url: 'http://127.0.0.1:3001/instructors/',
         json: {firstName: firstName,lastName:lastName, email: email, days: days}
     }, function (err, httpResponse, body) {
         if (httpResponse.statusCode != 200) {

@@ -11,7 +11,7 @@ router.get("/:day", function (req, res, next) {
     // res.cookie('user', user, {expire: new Date() + (30 * 60 * 1000)});
 
     request.get({
-        url: 'http://localhost:3001/horses/'+dayInTheWeek},function (err, httpResponse, body) {
+        url: 'http://127.0.0.1:3001/horses/'+dayInTheWeek},function (err, httpResponse, body) {
         res.send(body);
     });
 });
@@ -32,7 +32,7 @@ router.post("/", function (req,res,next) {
     let picture = req.body.picture;
     let takenDays=req.body.takenDays;
     request.post({
-        url: 'http://localhost:3001/horses/',
+        url: 'http://127.0.0.1:3001/horses/',
         json: {name: name,breed:breed, age: age, picture: picture,takenDays:takenDays}
     }, function (err, httpResponse, body) {
         if (httpResponse.statusCode != 200) {

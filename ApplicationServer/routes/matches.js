@@ -6,7 +6,7 @@ var request = require('request');
 //get all matches
 router.get("/", function (req, res, next) {
     request.get({
-        url: 'http://localhost:3001/matches/'
+        url: 'http://127.0.0.1:3001/matches/'
     }, function (err, httpResponse, body) {
         res.send(body);
     });
@@ -19,7 +19,7 @@ router.post("/", function (req,res,next) {
     let instructorId = req.body.instructorId;
     let lessonTime = req.body.lessonTime;
     request.post({
-        url: 'http://localhost:3001/matches/',
+        url: 'http://127.0.0.1:3001/matches/',
         json: {horseId: horseId,riderId:riderId, instructorId: instructorId, lessonTime: lessonTime}
     }, function (err, httpResponse, body) {
         if (httpResponse.statusCode != 200) {

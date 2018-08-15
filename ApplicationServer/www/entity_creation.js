@@ -43,7 +43,7 @@ function newRider(e) {
         alert("Please fill all the fields");
         return;
     }
-    fetch("http://localhost:3000/riders", {
+    fetch("http://127.0.0.1:3000/riders", {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -64,7 +64,7 @@ function newRider(e) {
             }
             else if(res.status == '401')
             {
-                window.location = "http://localhost:3000/static/login.html"
+                window.location = "http://127.0.0.1:3000/static/login.html"
             }
             else{
                 alert("Error during adding Rider");
@@ -84,7 +84,7 @@ function newInstructor(e) {
         alert("Please fill all the fields");
         return;
     }
-    fetch("http://localhost:3000/instructors", {
+    fetch("http://127.0.0.1:3000/instructors", {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -105,7 +105,7 @@ function newInstructor(e) {
             }
             else if(res.status == '401')
             {
-                window.location = "http://localhost:3000/static/login.html"
+                window.location = "http://127.0.0.1:3000/static/login.html"
             }
             else{
                 alert("Error during adding Instructor");
@@ -126,7 +126,7 @@ function newHorse(e) {
         alert("Please fill all the fields");
         return;
     }
-    fetch("http://localhost:3000/horses", {
+    fetch("http://127.0.0.1:3000/horses", {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -147,7 +147,7 @@ function newHorse(e) {
             }
             else if(res.status == '401')
             {
-                window.location = "http://localhost:3000/static/login.html"
+                window.location = "http://127.0.0.1:3000/static/login.html"
             }
             else{
                 alert("Error during adding Horse");

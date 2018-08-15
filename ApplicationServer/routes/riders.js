@@ -9,7 +9,7 @@ router.post("/", function (req, res, next) {
     let classTime = req.body.classTime;
     let hasMatch = req.body.hasMatch;
     request.post({
-        url: 'http://localhost:3001/riders/',
+        url: 'http://127.0.0.1:3001/riders/',
         json: {firstName: firstName, lastName: lastName, age: age, classTime: classTime, hasMatch: hasMatch}
     }, function (err, httpResponse, body) {
         if (httpResponse.statusCode != 200) {
@@ -23,7 +23,7 @@ router.post("/", function (req, res, next) {
 
 router.get("/", function (req, res, next) {
     request.get({
-        url: 'http://localhost:3001/riders/'
+        url: 'http://127.0.0.1:3001/riders/'
     }, function (err, httpResponse, body) {
             res.send(body);
     });

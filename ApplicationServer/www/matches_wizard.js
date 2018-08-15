@@ -2,7 +2,7 @@ loadRiders();
 
 
 function loadRiders() {
-    fetch("http://localhost:3000/riders", {
+    fetch("http://127.0.0.1:3000/riders", {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -13,7 +13,7 @@ function loadRiders() {
         .then((riders) => {
             if(riders.status == '401')
             {
-                window.location = "http://localhost:3000/static/login.html";
+                window.location = "http://127.0.0.1:3000/static/login.html";
             }
             riders.forEach(function (rider) {
                 createNewRiderElement(rider.guid, rider.firstName, rider.lastName,rider.age, rider.classTime)
@@ -41,7 +41,7 @@ function selectRider(riderId, date)
     document.getElementById("myULHorses").innerHTML="";
     let dateFormat = new Date(date);
     let day = dateFormat.getDay();
-    fetch("http://localhost:3000/instructors/" + day, {
+    fetch("http://127.0.0.1:3000/instructors/" + day, {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -52,7 +52,7 @@ function selectRider(riderId, date)
         .then((instructors) => {
             if(instructors.status == '401')
             {
-                window.location = "http://localhost:3000/static/login.html";
+                window.location = "http://127.0.0.1:3000/static/login.html";
             }
             instructors.forEach(function (instructor) {
                 createNewInstructorElement(instructor.guid, instructor.firstName, instructor.lastName,instructor.email, date, riderId)
@@ -79,7 +79,7 @@ function selectInstructor(instructorId, date, riderId)
 {
     document.getElementById("myULHorses").innerHTML="";
     let dateFormat = new Date(date);
-    fetch("http://localhost:3000/horses/" + dateFormat, {
+    fetch("http://127.0.0.1:3000/horses/" + dateFormat, {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -90,7 +90,7 @@ function selectInstructor(instructorId, date, riderId)
         .then((horses) => {
             if(horses.status == '401')
             {
-                window.location = "http://localhost:3000/static/login.html";
+                window.location = "http://127.0.0.1:3000/static/login.html";
             }
             horses.forEach(function (horse) {
                 createNewHorseElement(horse.guid, horse.name, horse.breed,horse.picture, date, riderId, instructorId)
@@ -118,7 +118,7 @@ function createNewHorseElement(id, name, breed, picture, date, riderId, instruct
 
 function createMatch(lessonTime, riderId, instructorId, horseId) {
     let lesson = JSON.stringify({lessonTime:lessonTime, riderId:riderId, instructorId:instructorId, horseId:horseId});
-    fetch("http://localhost:3000/matches", {
+    fetch("http://127.0.0.1:3000/matches", {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -135,7 +135,7 @@ function createMatch(lessonTime, riderId, instructorId, horseId) {
             }
             else if(res.status == '401')
             {
-                window.location = "http://localhost:3000/static/login.html"
+                window.location = "http://127.0.0.1:3000/static/login.html"
             }
             else{
                 alert("Error during adding new lesson");

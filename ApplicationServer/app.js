@@ -1,7 +1,11 @@
-let express = require('express');
+// let express = require('express');
 let cookieParser = require('cookie-parser');
-let app = express();
-
+// let app = express();
+var Ddos = require('ddos');
+var express = require('express');
+var ddos = new Ddos;
+var app = express();
+app.use(ddos.express);
 
 let keyFileStorage = require("key-file-storage");
 // Locate 'db' folder in the current directory as the storage path,
@@ -30,7 +34,7 @@ app.use("/idea", authorize);
 function authorize(req, res, next) {
     let user = req.cookies.user;
     if (user == undefined) {
-        res.status(401).redirect("http://localhost:3000/static/login.html");
+        res.status(401).redirect("http://127.0.0.1:3000/static/login.html");
         return;
     }
     else{
