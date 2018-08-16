@@ -1,7 +1,7 @@
 function logOut() {
 
     create_cookie('user', '', -10);
-    window.location = "http://localhost:3000/static/login.html"
+    window.location = "http://127.0.0.1:3000/static/login.html"
 };
 
 function create_cookie(name, value, days) {
