@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="myStylesheet.css">
-    <link rel="stylesheet" type="text/css" href="matches.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="welcome.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Welcome Page</title>
 </head>
@@ -12,17 +13,20 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a href="http://127.0.0.1:3000/static/welcome.html" style="width: auto"><img src="logo.png" style="width: 180px;"></a>&nbsp&nbsp
+    <a href="http://127.0.0.1:3000/static/welcome.html" style="width: auto"><img src="logo.png"
+                                                                                 style="width: 180px;"></a>&nbsp&nbsp
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
             <li1 class="nav-item active">
-                <a class="nav-link" href="http://127.0.0.1:3000/static/welcome.html">Home &nbsp&nbsp<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="http://127.0.0.1:3000/static/welcome.html">Home &nbsp&nbsp<span
+                        class="sr-only">(current)</span></a>
             </li1>
             <li1 class="nav-item">
                 <a class="nav-link" href="http://127.0.0.1:3000/static/entity_creation.html">Add entity &nbsp&nbsp</a>
             </li1>
             <li1 class="nav-item">
-                <a class="nav-link" href="http://127.0.0.1:3000/static/matches_wizard.html">Lessons wizard &nbsp&nbsp</a>
+                <a class="nav-link" href="http://127.0.0.1:3000/static/matches_wizard.html">Lessons wizard
+                    &nbsp&nbsp</a>
             </li1>
             <li1 class="nav-item">
                 <a class="nav-link" href="http://127.0.0.1:3000/static/matches.html">Lessons &nbsp&nbsp</a>
@@ -31,7 +35,76 @@
         <button type="button" class="btn btn-outline-danger" style="float: right" onclick="logOut()">Log Out</button>
     </div>
 </nav>
+<header class="bg-image">
+    <div class="container">
+        <h1>Stable scheduling system.</h1>
+        <h2>this stable scheduling system will blow your mind.</h2>
+        <a href="http://127.0.0.1:3000/static/entity_creation.html" class="btn btn-transparent">start adding
+            entities!</a>
+    </div>
+</header>
 
+
+<section class="section--primary" style="">
+    <div class="container">
+        <div class="col-3 features">
+            <i class="fa fa-bolt"></i>
+            <p>
+                now scheduling is much faster!
+            </p>
+        </div>
+        <div class="col-3 features">
+            <i class="fa fa-bank"></i>
+            <p>
+                approved by the stables union.
+            </p>
+        </div>
+        <div class="col-3 features">
+            <i class="fa fa-heart"></i>
+            <p>
+                invite other farms to join the revolution.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="section--primary--alt bg-image bg-image-2">
+    <div class="container text--center">
+        <h3>Reasons to buy this product:</h3>
+        <div class="col-5 text--left">
+            <ul>
+                <li>Its the best</li>
+                <li>Its awesome</li>
+                <li>It makes you happy</li>
+                <li>It brings world peace</li>
+                <li>Its free!</li>
+            </ul>
+        </div>
+        <div class="col-5 text--left">
+            <ul>
+                <li>Its the best</li>
+                <li>Its awesome</li>
+                <li>It makes you happy</li>
+                <li>It brings world peace</li>
+                <li>Its free!</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<footer>
+    <div class="container">
+        <ul>
+            <li><a href="#">MainPage</a></li>
+        </ul>
+        <p> All rights reserved.</p>
+    </div>
+</footer>
 </body>
+<script src="welcome.js"></script>
 <script src="logout.js"></script>
 </html>
