@@ -56,7 +56,11 @@ function newRider(e) {
     }).then((response) => response.json())
         .then((res) => {
             if (res.status == '200'){
-                alert("Rider added successfully");
+                let div = document.createElement("div");
+                div.setAttribute("class", "alert alert-success alert-dismissible");
+                div.innerHTML = " <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>\n" +
+                    "                <strong>Success!</strong> New rider added."
+                document.getElementById("rider").appendChild(div);
                 let elements = document.getElementsByTagName("input");
                 for (let ii=0; ii < elements.length; ii++) {
                     if (elements[ii].type == "text") {
@@ -69,7 +73,11 @@ function newRider(e) {
                 window.location = "http://127.0.0.1:3000/static/login.html"
             }
             else{
-                alert("Error during adding Rider");
+                let div = document.createElement("div");
+                div.setAttribute("class", "alert alert-danger alert-dismissible");
+                div.innerHTML = " <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>\n" +
+                    "                <strong>Error!</strong> during adding rider."
+                document.getElementById("rider").appendChild(div);
             }
         });
 }
@@ -99,7 +107,11 @@ function newInstructor(e) {
     }).then((response) => response.json())
         .then((res) => {
             if (res.status == '200'){
-                alert("Instructor added successfully");
+                let div = document.createElement("div");
+                div.setAttribute("class", "alert alert-success alert-dismissible");
+                div.innerHTML = " <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>\n" +
+                    "                <strong>Success!</strong> New instructor added."
+                document.getElementById("instructor").appendChild(div);
                 let elements = document.getElementsByTagName("input");
                 for (let ii=0; ii < elements.length; ii++) {
                     if (elements[ii].type == "text") {
@@ -112,7 +124,11 @@ function newInstructor(e) {
                 window.location = "http://127.0.0.1:3000/static/login.html"
             }
             else{
-                alert("Error during adding Instructor");
+                let div = document.createElement("div");
+                div.setAttribute("class", "alert alert-danger alert-dismissible");
+                div.innerHTML = " <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>\n" +
+                    "                <strong>Error!</strong> during adding instructor."
+                document.getElementById("instructor").appendChild(div);
             }
         });
 }
@@ -141,7 +157,11 @@ function newHorse(e) {
     }).then((response) => response.json())
         .then((res) => {
             if (res.status == '200'){
-                alert("Horse added successfully");
+                let div = document.createElement("div");
+                div.setAttribute("class", "alert alert-success alert-dismissible");
+                div.innerHTML = " <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>\n" +
+                    "                <strong>Success!</strong> New horse added."
+                document.getElementById("horse").appendChild(div);
                 let elements = document.getElementsByTagName("input");
                 for (let ii=0; ii < elements.length; ii++) {
                     if (elements[ii].type == "text") {
@@ -154,7 +174,11 @@ function newHorse(e) {
                 window.location = "http://127.0.0.1:3000/static/login.html"
             }
             else{
-                alert("Error during adding Horse");
+                let div = document.createElement("div");
+                div.setAttribute("class", "alert alert-danger alert-dismissible");
+                div.innerHTML = " <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>\n" +
+                    "                <strong>Error!</strong> during adding horse."
+                document.getElementById("horse").appendChild(div);
             }
         });
 }

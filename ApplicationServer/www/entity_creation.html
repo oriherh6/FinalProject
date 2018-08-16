@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="myStylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
@@ -49,13 +51,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">First Name</label>
-                        <input type="text" class="form-control" name="fname" id="fname_rider">
+                        <input type="text" class="form-control" name="fname" id="fname_rider" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Last Name</label>
-                        <input type="text" class="form-control" name="lname" id="lname_rider">
+                        <input type="text" class="form-control" name="lname" id="lname_rider" required>
                     </div>
                 </div>
             </div>
@@ -63,7 +65,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Age</label>
-                        <input type="text" class="form-control" name="age" id="age_rider">
+                        <input type="text" class="form-control" name="age" id="age_rider" min="0" max="100" required>
                     </div>
                 </div>
                 <div class='col-md-6'>
@@ -101,13 +103,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">First Name</label>
-                        <input type="text" class="form-control" name="fname" id="fname_instructor">
+                        <input type="text" class="form-control" name="fname" id="fname_instructor" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Last Name</label>
-                        <input type="text" class="form-control" name="lname" id="lname_instructor">
+                        <input type="text" class="form-control" name="lname" id="lname_instructor" required>
                     </div>
                 </div>
             </div>
@@ -115,7 +117,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Email</label>
-                        <input type="text" class="form-control" name="email" id="email_instructor">
+                        <input type="text" class="form-control" name="email" id="email_instructor" required>
                     </div>
                 </div>
                 <div class='col-md-6'>
@@ -175,13 +177,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Name</label>
-                        <input type="text" class="form-control" name="fname" id="name_horse">
+                        <input type="text" class="form-control" name="fname" id="name_horse" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Breed</label>
-                        <input type="text" class="form-control" name="lname" id="breed_horse">
+                        <input type="text" class="form-control" name="lname" id="breed_horse" required>
                     </div>
                 </div>
             </div>
@@ -189,7 +191,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Age</label>
-                        <input type="text" class="form-control" name="age" id="age_horse">
+                        <input type="text" class="form-control" name="age" id="age_horse" min="0" max="100" required>
                     </div>
                 </div>
                 <div class="col-md-6">
