@@ -21,9 +21,10 @@ router.post("/", function (req,res,next) {
     let lastName = req.body.lastName;
     let email = req.body.email;
     let days = req.body.days;
+    let picture = req.body.picture;
     request.post({
         url: 'http://127.0.0.1:3001/instructors/',
-        json: {firstName: firstName,lastName:lastName, email: email, days: days}
+        json: {firstName: firstName,lastName:lastName, email: email, days: days, picture:picture}
     }, function (err, httpResponse, body) {
         if (httpResponse.statusCode != 200) {
             res.status(500).send();

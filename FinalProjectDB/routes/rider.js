@@ -25,9 +25,10 @@ router.post("/", function (req, res, next) {
     let lastName = req.body.lastName;
     let age = req.body.age;
     let classTime = req.body.classTime;
+    let picture = req.body.picture;
 
     let guid = guid1();
-    kfs(guid, {firstName: firstName,lastName: lastName, age: age, classTime: classTime,guid: guid, hasMatch:false}, function () {
+    kfs(guid, {firstName: firstName,lastName: lastName, age: age, classTime: classTime,guid: guid, hasMatch:false, picture:picture}, function () {
         res.status(200).send();
     });
 });
