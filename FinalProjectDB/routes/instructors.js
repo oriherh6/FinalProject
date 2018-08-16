@@ -19,9 +19,11 @@ router.post("/", function (req, res, next) {
     let lastName = req.body.lastName;
     let email = req.body.email;
     let days = req.body.days;
+    let picture = req.body.picture;
+
 
     let guid = guid1();
-    kfs(guid, {firstName: firstName,lastName: lastName, days: days, email: email,guid: guid}, function () {
+    kfs(guid, {firstName: firstName,lastName: lastName, days: days, email: email,guid: guid, picture:picture}, function () {
         res.status(200).send();
     });
 });

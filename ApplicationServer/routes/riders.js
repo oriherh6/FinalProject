@@ -8,9 +8,10 @@ router.post("/", function (req, res, next) {
     let age = req.body.age;
     let classTime = req.body.classTime;
     let hasMatch = req.body.hasMatch;
+    let picture= req.body.picture;
     request.post({
         url: 'http://127.0.0.1:3001/riders/',
-        json: {firstName: firstName, lastName: lastName, age: age, classTime: classTime, hasMatch: hasMatch}
+        json: {firstName: firstName, lastName: lastName, age: age, classTime: classTime, hasMatch: hasMatch, picture:picture}
     }, function (err, httpResponse, body) {
         if (httpResponse.statusCode != 200) {
             res.status(500).send();

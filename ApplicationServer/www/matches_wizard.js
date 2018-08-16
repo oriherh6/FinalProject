@@ -25,6 +25,7 @@ function loadRiders() {
 
 function createNewRiderElement(id, firstName, lastName, age, classTime) {
     let li = document.createElement("li");
+    li.classList.add('list-item');
     let inputValue = firstName + " " + lastName + "   Age:" + age + "   Class Time:" + classTime;
     let t = document.createTextNode(inputValue);
     li.appendChild(t);
