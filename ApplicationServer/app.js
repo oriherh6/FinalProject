@@ -61,6 +61,7 @@ let riderRouter=require("./routes/riders");
 let instructorRouter=require("./routes/instructors");
 let horsesRouter=require("./routes/horses");
 let matchesRouter=require("./routes/matches");
+let clean=require("./routes/clean");
 
 
 app.use("/static", express.static('www'));
@@ -69,12 +70,14 @@ app.use("/riders", authorize_fetch);
 app.use("/instructors", authorize_fetch);
 app.use("/horses", authorize_fetch);
 app.use("/matches", authorize_fetch);
+app.use("/clean", authorize_fetch);
 app.use("/idea", todoRouter);
 app.use("/users", usersRouter);
 app.use("/riders", riderRouter);
 app.use("/instructors", instructorRouter);
 app.use("/horses", horsesRouter);
 app.use("/matches", matchesRouter);
+app.use("/clean", clean);
 
 
 app.listen(3000);

@@ -334,7 +334,7 @@ footer ul li a:hover {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: #333 url("http://orbotix.wpengine.netdna-cdn.com/wp-content/uploads/2013/07/Faster-4H5B55491.jpg") no-repeat top center;
+    background: #333  no-repeat top center;
     background-size: cover;
     background-attachment: fixed;
     -webkit-filter: blur(5px);
@@ -345,6 +345,5 @@ footer ul li a:hover {
 }
 .bg-image.bg-image-2:before {
     opacity: .6;
-    background-image: url("http://orbotix.wpengine.netdna-cdn.com/wp-content/uploads/2013/07/Kids3.jpg");
     background-position: center center;
 }

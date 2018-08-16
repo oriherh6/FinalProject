@@ -6,12 +6,11 @@ var bar = document.querySelectorAll(".bar"),
     refresh = document.querySelector(".refresh"),
     starOne = document.querySelector(".star.one");
 
-var tl = new TimelineMax({});
 
 // basic setting
-tl.set(parBig, {
-    y: "30px"
-})
+// tl.set(parBig, {
+//     y: "30px"
+// })
     .set(bar, {
         opacity: 0
     })

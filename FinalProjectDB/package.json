@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "cookie-parser": "^1.4.3",
+    "empty-folder": "^2.0.2",
     "express": "^4.16.3",
     "help": "^3.0.2",
     "key-file-storage": "^2.1.5",
