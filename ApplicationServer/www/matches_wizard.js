@@ -16,23 +16,34 @@ function loadRiders() {
                 window.location = "http://127.0.0.1:3000/static/login.html";
             }
             riders.forEach(function (rider) {
-                createNewRiderElement(rider.guid, rider.firstName, rider.lastName,rider.age, rider.classTime)
+                let pic = rider.picture;
+                if(pic == "")
+                {
+                    //default picture for horse
+                    pic = "https://media.thequoteunquote.com/default-user-1494243238_350x300_.png";
+                }
+                createNewRiderElement(rider.guid, rider.firstName, rider.lastName,rider.age, rider.classTime, pic)
             });
         });
 }
 
 
 
-function createNewRiderElement(id, firstName, lastName, age, classTime) {
+function createNewRiderElement(id, firstName, lastName, age, classTime, picture) {
     let li = document.createElement("li");
-    li.classList.add('list-item');
-    let inputValue = firstName + " " + lastName + "   Age:" + age + "   Class Time:" + classTime;
-    let t = document.createTextNode(inputValue);
-    li.appendChild(t);
     li.setAttribute("id", id);
     li.setAttribute("riderId", id);
     li.setAttribute("dateForInstructor", classTime);
-    li.setAttribute("onclick", "selectRider(this.getAttribute('riderId'), this.getAttribute('dateForInstructor')); markElement(\"myULRiders\",id);");
+    li.setAttribute("onclick", "selectRider(this.getAttribute('riderId'), this.getAttribute('dateForInstructor')); markElement(\"myULRiders\",id);")
+    li.setAttribute("class", "list-item");
+    li.innerHTML = `<div class="list-item__image">
+			<img src="${picture}" alt="Thumbnail">
+		</div>
+		<div class="list-item__content">
+			<h4>${firstName} ${lastName}</h4>
+			<p>Age: ${age} </p>
+			<h4>${classTime}</h4>
+		</div>`;
     document.getElementById("myULRiders").appendChild(li);
 }
 
@@ -56,22 +67,33 @@ function selectRider(riderId, date)
                 window.location = "http://127.0.0.1:3000/static/login.html";
             }
             instructors.forEach(function (instructor) {
-                createNewInstructorElement(instructor.guid, instructor.firstName, instructor.lastName,instructor.email, date, riderId)
+                let pic = instructor.picture;
+                if(pic == "")
+                {
+                    //default picture for horse
+                    pic = "https://media.thequoteunquote.com/default-user-1494243238_350x300_.png";
+                }
+                createNewInstructorElement(instructor.guid, instructor.firstName, instructor.lastName,instructor.email, date, riderId, pic)
             });
         });
 
 }
 
-function createNewInstructorElement(id, firstName, lastName, email, date, riderId) {
+function createNewInstructorElement(id, firstName, lastName, email, date, riderId, picture) {
     let li = document.createElement("li");
-    let inputValue = firstName + " " + lastName + "   Email:" + email;
-    let t = document.createTextNode(inputValue);
-    li.appendChild(t);
     li.setAttribute("id", id);
     li.setAttribute("instructorID", id);
     li.setAttribute("riderId", riderId);
     li.setAttribute("date", date);
     li.setAttribute("onclick","selectInstructor(this.getAttribute('instructorID'),this.getAttribute('date'),this.getAttribute('riderId')); markElement(\"myULInstructors\",id);");
+    li.setAttribute("class", "list-item");
+    li.innerHTML = `<div class="list-item__image">
+			<img src="${picture}" alt="Thumbnail" style="width: 80px"; border-radius="50%">
+		</div>
+		<div class="list-item__content">
+			<h4>${firstName} ${lastName}</h4>
+			<p>Email: ${email} </p>
+		</div>`;
     document.getElementById("myULInstructors").appendChild(li);
 }
 
@@ -94,26 +116,40 @@ function selectInstructor(instructorId, date, riderId)
                 window.location = "http://127.0.0.1:3000/static/login.html";
             }
             horses.forEach(function (horse) {
-                createNewHorseElement(horse.guid, horse.name, horse.breed,horse.picture, date, riderId, instructorId)
+                let pic = horse.picture;
+                if(pic == "")
+                {
+                    //default picture for horse
+                    pic = "https://www.caribuhorsewear.com.au/images/P/Purple-Rope-Halter%20%283%29.jpg"
+                }
+                createNewHorseElement(horse.guid, horse.name, horse.breed, pic, date, riderId, instructorId)
             });
         });
 
 }
 
 function createNewHorseElement(id, name, breed, picture, date, riderId, instructorId) {
-    let li = document.createElement("li");
     if(picture == "")
     {
         //default picture for horse
         picture = "https://www.caribuhorsewear.com.au/images/P/Purple-Rope-Halter%20%283%29.jpg"
     }
-    li.innerHTML = `<h4 style="display: inline">${name}</h4> &nbsp &nbsp <img src="${picture}" style="width: 12%;height: 12%">`;
+
+    let li = document.createElement("li");
     li.setAttribute("id", id);
     li.setAttribute("horseId", id);
     li.setAttribute("riderId", riderId);
     li.setAttribute("instructorId", instructorId);
     li.setAttribute("date", date);
     li.setAttribute("onclick","createMatch(this.getAttribute('date'),this.getAttribute('riderId'),this.getAttribute('instructorId'),this.getAttribute('horseId')); markElement(\"myULHorses\",id)");
+    li.setAttribute("class", "list-item");
+    li.innerHTML = `<div class="list-item__image">
+			<img src="${picture}" alt="Thumbnail" style="width: 80px"; border-radius="50%">
+		</div>
+		<div class="list-item__content">
+			<h4>${name}</h4>
+			<p>Breed: ${breed}</p>
+		</div>`;
     document.getElementById("myULHorses").appendChild(li);
 }
 
@@ -150,7 +186,7 @@ function markElement(ulName,id) {
     let lis = ul.getElementsByTagName("li");
     for(let i=0; i< lis.length;i++)
     {
-        lis[i].className="";
+        lis[i].className="list-item";
     }
-    document.getElementById(id).className += "active";
+    document.getElementById(id).className += " active";
 }

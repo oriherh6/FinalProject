@@ -3,6 +3,7 @@
     box-sizing: border-box;
 }
 
+
 .ignore-css
 {
     all:unset;
@@ -167,11 +168,11 @@ input {
 .list .list-item__content h4{
     margin: 0;
     font-size: 18px;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .list .list-item__content p{
     margin-top: 5px;
-    color: #AAA;
+    color: #626eaa;
     margin-bottom: 0;
 }
