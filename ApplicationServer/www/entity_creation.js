@@ -37,8 +37,10 @@ function newRider(e) {
     let lastName = document.getElementById("lname_rider").value;
     let age = document.getElementById("age_rider").value;
     let classTime = document.getElementById("class_date_rider").value;
+    let picture = document.getElementById("picture_rider").value;
 
-    let rider = JSON.stringify({firstName:firstName, lastName:lastName, age:age, classTime:classTime});
+
+    let rider = JSON.stringify({firstName:firstName, lastName:lastName, age:age, classTime:classTime, picture:picture});
     if (firstName === '' || lastName === '' || age ==='' || classTime === '') {
         alert("Please fill all the fields");
         return;
@@ -78,8 +80,10 @@ function newInstructor(e) {
     let lastName = document.getElementById("lname_instructor").value;
     let email = document.getElementById("email_instructor").value;
     let days = [].filter.call(document.getElementsByName('days'), (c) => c.checked).map(c => c.value);
+    let picture = document.getElementById("picture_instructor").value;
 
-    let instructor = JSON.stringify({firstName:firstName, lastName:lastName, email:email, days:days});
+
+    let instructor = JSON.stringify({firstName:firstName, lastName:lastName, email:email, days:days, picture:picture});
     if (firstName === '' || lastName === '' || email ==='' || days == []) {
         alert("Please fill all the fields");
         return;
