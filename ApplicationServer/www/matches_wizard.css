@@ -144,6 +144,7 @@ input {
 .list .list-item{
     display: flex;
     padding: 10px 5px;
+    border-radius: 21px;
 }
 .list .list-item:not(:last-child){
     border-bottom: 1px solid #EEE;
