@@ -70,14 +70,14 @@ app.use("/riders", authorize_fetch);
 app.use("/instructors", authorize_fetch);
 app.use("/horses", authorize_fetch);
 app.use("/matches", authorize_fetch);
-app.use("/clean", authorize_fetch);
+app.use("/data/clean", authorize_fetch);
 app.use("/idea", todoRouter);
 app.use("/users", usersRouter);
 app.use("/riders", riderRouter);
 app.use("/instructors", instructorRouter);
 app.use("/horses", horsesRouter);
 app.use("/matches", matchesRouter);
-app.use("/clean", clean);
+app.use("/data/clean", clean);
 
 
 app.listen(3000);
