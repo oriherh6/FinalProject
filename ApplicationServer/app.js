@@ -37,7 +37,7 @@ function authorize(req, res, next) {
         return;
     }
     else{
-        res.cookie('user', user, {expire: new Date() + (30 * 60 * 1000)});
+        res.cookie('user', user, {maxAge: (30 * 60 * 1000), httpOnly:false, secure:false});
 
         next();
     }
@@ -49,7 +49,7 @@ function authorize_fetch(req, res, next) {
         return;
     }
     else{
-        res.cookie('user', user, {expire: new Date() + (30 * 60 * 1000)});
+        res.cookie('user', user, {maxAge: (30 * 60 * 1000),httpOnly:false, secure:false});
 
         next();
     }
