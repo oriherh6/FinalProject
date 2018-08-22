@@ -1,6 +1,6 @@
 let express = require("express");
 let router = express.Router();
-var request = require('request');
+let request = require('request');
 
 //get all instructors that work on specific day
 router.get("/:day", function (req, res, next) {

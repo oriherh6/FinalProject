@@ -1,9 +1,8 @@
 let express = require('express');
 let cookieParser = require('cookie-parser');
 let app = express();
-var Ddos = require('ddos');
-// var express = require('express');
-var ddos = new Ddos({burst:50, limit:50});
+let Ddos = require('ddos');
+let ddos = new Ddos({burst:50, limit:50});
 app.use(ddos.express);
 
 let keyFileStorage = require("key-file-storage");
